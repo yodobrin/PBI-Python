@@ -5,6 +5,17 @@ Power BI Embedded using python. This project is forked from [Samples](https://gi
 ## Use Case
 Your organization collected data, or is aiming to collect. You have a great reporting team, they produce amayzing reports from the collected data, these reports can help other achieve thier goals, save lives, help plan for traffic jams, or any other target. But you have only few 'Pro' licenses, and you dont aim on creating a premium account just yet. With power BI embedded, you can publish the reports to a large community. But, you dont just want anyone to access, you have restrictions requirments, have it regulation or a business decsion.
 
+## Implementation Steps
+In order to build your own application, follow these high level guidlines:
++ clone this repo to your local machine
++ Obtain required parameters for your Power BI report
++ Create Service Principal
++ Allow the principal to leverage the embeded capacity
++ Deploy your application to Azure
++ Add authentication to the application
++ Add WAF
++ Invite users to your application
+
 ## Solution Architecture
 
 ![Architecture](https://user-images.githubusercontent.com/37622785/81040881-0c9c0e00-8eb5-11ea-9b48-6cae552efd74.png)
@@ -20,18 +31,21 @@ Your organization collected data, or is aiming to collect. You have a great repo
 + Embedded Capacity documentation
 
 #### Web App
+[Web app](https://docs.microsoft.com/en-us/azure/app-service/overview), common PaaS solution, allowing developers to host thier code in a quick manner, it let the developr focus on the application, rather than anything else.
+Web app can host application written in multiple languages. In this example we are using a Python based application. If this is your first time using one, We suggest you follow a [tutorial](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-python?tabs=bash) to get familar with the concepts.
 
 #### Key Vault
 **Never** write your secrets in your code. Having your secrets in the web app configuration is your minimal secured posture. The recoemnded method to store secrets is using a [Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview).
 As this is simple demo app, we are not using it, rather keeping the secrets in the web app configuration. 
 
 
-*Note: there are few options to leverage the values stored in the key vault, either via ``` App Configuration ``` and associated it to the KeyVault see [tutorial](https://docs.microsoft.com/en-us/azure/azure-app-configuration/use-key-vault-references-dotnet-core?tabs=cmd%2Ccore2x), you will also need to alter the code, and stop using ```os.environ.get``` and follow this [quick start](https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-python). Another alternative is by using [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).*
+*__Note:__ there are few options to leverage the values stored in the key vault, either via ``` App Configuration ``` and associated it to the KeyVault see [tutorial](https://docs.microsoft.com/en-us/azure/azure-app-configuration/use-key-vault-references-dotnet-core?tabs=cmd%2Ccore2x), you will also need to alter the code, and stop using ```os.environ.get``` and follow this [quick start](https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-python). Another alternative is by using [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).*
 
 #### Identity Provider (Azure Active Directory)
 While this repository is focused on AAD, there are multiple identity providers, that are already pre-integrated to Azure web application [see documentation](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization). In case these means are not sufficent, one can create other ways to authentication and authorize. There are few (at the time this repository was created) limitation in Azure Web App deployment, that might require you to leverage docker deployment, more details later in this document.
 #### WAF
-This module is in place to allow enhanced security posture, regadless of your data classification, we rather our web site remain safe. WAF provide basic security measures against the common attacks.
+This module is in place to allow enhanced security posture, regadless of your data classification, we rather our web site remain safe. WAF provide basic security measures against the common attacks. The Web Application Firewall domain has many vendors, we will be using the [Azure WAF V2](https://docs.microsoft.com/en-us/azure/web-application-firewall/ag/ag-overview)
+
 #### Optional - On prem / other clouds - Data Repositories
 
 ### Deployment Options
@@ -71,6 +85,9 @@ admin settings
 #### Associate Embedded Capacity
 
 ### WAF setup
-http/s
-access restriction for web apps
+Follow this [quick start](https://docs.microsoft.com/en-us/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal) to deploy a WAF V2.
+
+*__Note:__ when configuring the ```http``` setting toggle the ```Override with new host name``` to **Yes** *
+
+
 
