@@ -13,25 +13,18 @@
 <body>
     <header class="embed-container col-lg-12 col-md-12 col-sm-12 shadow">
         <p>
-            Power BI Embedded Sample
+            Power BI Embedded Sample - Demo Web App
         </p>
     </header>
     <main class="row">
         <section id="text-container" class="embed-container col-lg-4 col-md-4 col-sm-4 mb-5 ml-5 mt-5">
             <div>
-                <p>This sample is developed using Flask framework. YYehh Baby
+                <p>This sample is developed using Flask framework. 
                     <br>
-                    In order to see a different report, make changes to the <i>config.py</i> file.
+                    In order to see a different report, make changes to the enviorment variables (workspace-id & report-id).
                 </p>
-                <p>Code is present in the following files:
-                    <ol>
-                        <li>app.py</li>
-                        <li>aadservice.py</li>
-                        <li>pbiembedservice.py</li>
-                        <li>index.js</li>
-                        <li>index.html</li>
-                        <li>index.css</li>
-                    </ol>
+                <p>Code is maintained in this <a href="https://github.com/yodobrin/PBI-Python">repo</a>
+
                 </p>
             </div>
         </section>
@@ -43,13 +36,13 @@
         </section>
     </main>
     <footer class="embed-container col-lg-12 col-md-12 col-sm-12 mb-0 mt-4">
-        <p class="text-center">
+        <!-- <p class="text-center">
             For Live demo and more code samples please visit <a
             href="https://aka.ms/pbijs">https://aka.ms/pbijs</a>
             <br>
             For JavaScript API, please visit <a
             href="https://aka.ms/PowerBIjs">https://aka.ms/PowerBIjs</a>
-        </p>
+        </p> -->
     </footer>
     <script src="{{ url_for('static', filename='js/external/bootstrap.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/external/jquery-3.4.1.min.js') }}"></script>

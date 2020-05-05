@@ -22,6 +22,9 @@ Your organization collected data, or is aiming to collect. You have a great repo
 #### Web App
 
 #### Key Vault
+**Never** write your secrets in your code. Having your secrets in the web app configuration is your minimal secured posture. The recoemnded method to store secrets is using a [Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview).
+As this is simple demo app, we are not using it, rather keeping the secrets in the web app configuration. 
+*Note: there are few options to leverage the values stored in the key vault, either via ``` App Configuration ``` and associated it to the KeyVault see [tutorial](https://docs.microsoft.com/en-us/azure/azure-app-configuration/use-key-vault-references-dotnet-core?tabs=cmd%2Ccore2x), you will also need to alter the code, and stop using ```os.environ.get``` and follow this [quick start](https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-python). Another alternative is by using [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops?view=azure-devops). 
 
 #### Identity Provider (Azure Active Directory)
 While this repository is focused on AAD, there are multiple identity providers, that are already pre-integrated to Azure web application [see documentation](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization). In case these means are not sufficent, one can create other ways to authentication and authorize. There are few (at the time this repository was created) limitation in Azure Web App deployment, that might require you to leverage docker deployment, more details later in this document.
@@ -30,10 +33,33 @@ This module is in place to allow enhanced security posture, regadless of your da
 #### Optional - On prem / other clouds - Data Repositories
 
 ### Deployment Options
+Follow our [Best Practices](https://docs.microsoft.com/en-us/azure/app-service/deploy-best-practices) for deployment. In this repo we used the stright forward deployment from visual studio code.
+
 
 #### VIsual Studio Code
+Once cloned to your local machine, navigate to the created folder and type ```code .``` 
+Examine this [tutorial](https://docs.microsoft.com/en-us/azure/javascript/tutorial-vscode-azure-app-service-node-01?tabs=bash) demonstrate the steps for deployment, even though it uses Node.js code, the deployment steps are similar.
+you will need to create/update ``` .env ``` file with the following parameters:
+
+```
+# Either 'MasterUser' or 'ServicePrincipal' - default is set to ServicePrincipal
+AUTHENTICATION_MODE=""
+WORKSPACE_ID=""
+REPORT_ID=""
+TENANT_ID=""
+CLIENT_ID=""
+# Required only for 'ServicePrincipal' authentication mode
+CLIENT_SECRET=""
+# Required only for 'MasterUser' authentication mode
+POWER_BI_USER=""
+POWER_BI_PASS=""
+```
+Follow steps describes in the following sections on how to obtain these values.
+
 
 #### Docker deployment
+In few cases, where your requirments file contain packages, which cannot be loaded correctly by the app service, you will need to deploy your code as Docker container.
+This repo, does not cover how to do so, as there are multiple blogs and tutorials which explains this area. Here is one [example](https://docs.microsoft.com/en-us/azure/javascript/tutorial-vscode-docker-node-01?tabs=bash).
 
 ### Active Directory setup
 PAVELA: required role for assignment (tennat, spn, roles)
