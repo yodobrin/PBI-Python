@@ -17,6 +17,7 @@ Your organization collected data, or is aiming to collect. You have a great repo
 + Documentation for connecting using the ENT Data GW
 
 #### Power BI embedded capacity
++ Embedded Capacity documentation
 
 #### Web App
 
