@@ -10,8 +10,11 @@ Your organization collected data, or is aiming to collect. You have a great repo
 ![Architecture](https://user-images.githubusercontent.com/37622785/81040881-0c9c0e00-8eb5-11ea-9b48-6cae552efd74.png)
 
 ### Solution Componenets
++ Documentation overview for each component
 
 #### Data Repositories
++ Documnetation for PBI connectors
++ Documentation for connecting using the ENT Data GW
 
 #### Power BI embedded capacity
 
@@ -30,3 +33,15 @@ This module is in place to allow enhanced security posture, regadless of your da
 #### VIsual Studio Code
 
 #### Docker deployment
+
+### Active Directory setup
+PAVELA: required role for assignment (tennat, spn, roles)
+
+### Power BI - One time setup
+admin settings
+#### Associate Embedded Capacity
+
+### WAF setup
+http/s
+access restriction for web apps
+
