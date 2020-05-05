@@ -39,7 +39,7 @@ Web app can host application written in multiple languages. In this example we a
 As this is simple demo app, we are not using it, rather keeping the secrets in the web app configuration. 
 
 
-*_Note:_ there are few options to leverage the values stored in the key vault, either via ``` App Configuration ``` and associated it to the KeyVault see [tutorial](https://docs.microsoft.com/en-us/azure/azure-app-configuration/use-key-vault-references-dotnet-core?tabs=cmd%2Ccore2x), you will also need to alter the code, and stop using ```os.environ.get``` and follow this [quick start](https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-python). Another alternative is by using [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).*
+*__Note:__ there are few options to leverage the values stored in the key vault, either via ``` App Configuration ``` and associated it to the KeyVault see [tutorial](https://docs.microsoft.com/en-us/azure/azure-app-configuration/use-key-vault-references-dotnet-core?tabs=cmd%2Ccore2x), you will also need to alter the code, and stop using ```os.environ.get``` and follow this [quick start](https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-python). Another alternative is by using [Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).*
 
 #### Identity Provider (Azure Active Directory)
 While this repository is focused on AAD, there are multiple identity providers, that are already pre-integrated to Azure web application [see documentation](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization). In case these means are not sufficent, one can create other ways to authentication and authorize. There are few (at the time this repository was created) limitation in Azure Web App deployment, that might require you to leverage docker deployment, more details later in this document.
@@ -87,7 +87,7 @@ admin settings
 ### WAF setup
 Follow this [quick start](https://docs.microsoft.com/en-us/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal) to deploy a WAF V2.
 
-*_Note:_ when configuring the ```http``` setting toggle the ```Override with new host name``` to **Yes***
+*__Note:__ when configuring the ```http``` setting toggle the ```Override with new host name``` to **Yes***
 
 
 
