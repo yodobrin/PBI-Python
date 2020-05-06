@@ -78,21 +78,19 @@ In few cases, where your requirments file contain packages, which cannot be load
 This repo, does not cover how to do so, as there are multiple blogs and tutorials which explains this area. Here is one [example](https://docs.microsoft.com/en-us/azure/javascript/tutorial-vscode-docker-node-01?tabs=bash).
 
 ### Active Directory setup
-PAVELA: required role for assignment (tennat, spn, roles)
+It is recoemnded to utilize Service Principal, as users might move from an organization, thier authorization altered etc. In this repository, we cover the steps required to create and enable a service principal access to embedded capacity.
+The following [guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) contains step by step instructions on how to create a service principal.
 
 ### Power BI - One time setup
 There are two options to consume PBI embedded capacity, see [license types](https://docs.microsoft.com/en-us/power-bi/service-features-license-type) for more details.
 + Dedicated 'Pro' user
 + Service Principal
-It is recoemnded to utilize Service Principal, as users might move from an organization, thier authorization altered etc. In this repository, we cover the steps required to create and enable a service principal access to embedded capacity.
-The following [guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) contains step by step instructions on how to create a service principal.
 
+#### Associate Embedded Capacity
 This [document](https://docs.microsoft.com/en-us/power-bi/developer/embedded/embed-service-principal) provide detailed instructions to the entire process, from creating the service principal to associate it to your public Power BI workspace.
 
 Lastly, to wrap it all up - see this [tutorial](https://docs.microsoft.com/en-us/power-bi/developer/embedded/embed-sample-for-customers#embed-content-using-the-sample-application) for associating the capacity.
 
-admin settings
-#### Associate Embedded Capacity
 
 ### WAF setup
 Follow this [quick start](https://docs.microsoft.com/en-us/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal) to deploy a WAF V2.
