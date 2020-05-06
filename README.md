@@ -20,15 +20,16 @@ In order to build your own application, follow these high level guidlines:
 
 ![Architecture](https://user-images.githubusercontent.com/37622785/81040881-0c9c0e00-8eb5-11ea-9b48-6cae552efd74.png)
 
-### Solution Componenets
-+ Documentation overview for each component
-
 #### Data Repositories
-+ Documnetation for PBI connectors
-+ Documentation for connecting using the ENT Data GW
++ Please review the [rich set of datasources](https://docs.microsoft.com/en-us/power-bi/desktop-data-sources#data-sources) that Power BI can connect to.
++ You can connect to on-premises datasources using the [On-Premises Data Gateway](https://docs.microsoft.com/en-us/power-bi/service-gateway-onprem-indepth). 
 
-#### Power BI embedded capacity
-+ Embedded Capacity documentation
+#### Power BI Embedded Capacity
+You will need a dedicated compute resource to render and display your reports. A capacity is attached to a Power BI workspace and can be either a [Power BI Premium](https://docs.microsoft.com/en-us/power-bi/service-premium-what-is#dedicated-capacities) or [Embedded Analytics](https://azure.microsoft.com/en-us/services/power-bi-embedded/) Capacity. 
+You can review the differences between the two in this [detailed whitepaper](https://go.microsoft.com/fwlink/?linkid=2057861).
+
+You can plan your deployment size using the [assessment tool](https://docs.microsoft.com/en-us/power-bi/developer/embedded/embedded-capacity-planning) and use these performance best pratices documents for tuning your deployment: [PBI reports](https://docs.microsoft.com/en-us/power-bi/guidance/power-bi-optimization), [PBI Embedded](https://docs.microsoft.com/en-us/power-bi/developer/embedded/embedded-performance-best-practices).
+.
 
 #### Web App
 [Web app](https://docs.microsoft.com/en-us/azure/app-service/overview), common PaaS solution, allowing developers to host thier code in a quick manner, it let the developr focus on the application, rather than anything else.
@@ -43,14 +44,12 @@ As this is simple demo app, we are not using it, rather keeping the secrets in t
 
 #### Identity Provider (Azure Active Directory)
 While this repository is focused on AAD, there are multiple identity providers, that are already pre-integrated to Azure web application [see documentation](https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization). In case these means are not sufficent, one can create other ways to authentication and authorize. There are few (at the time this repository was created) limitation in Azure Web App deployment, that might require you to leverage docker deployment, more details later in this document.
+
 #### WAF
 This module is in place to allow enhanced security posture, regadless of your data classification, we rather our web site remain safe. WAF provide basic security measures against the common attacks. The Web Application Firewall domain has many vendors, we will be using the [Azure WAF V2](https://docs.microsoft.com/en-us/azure/web-application-firewall/ag/ag-overview)
 
-#### Optional - On prem / other clouds - Data Repositories
-
 ### Deployment Options
 Follow our [Best Practices](https://docs.microsoft.com/en-us/azure/app-service/deploy-best-practices) for deployment. In this repo we used the stright forward deployment from visual studio code.
-
 
 #### VIsual Studio Code
 Once cloned to your local machine, navigate to the created folder and type ```code .``` 
